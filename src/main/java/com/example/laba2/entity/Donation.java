@@ -16,7 +16,7 @@ public class Donation {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "needy_id", referencedColumnName = "id")
     private Needy needy;
-
+//commit
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "option_id", referencedColumnName = "id")
     private Option option;
