@@ -13,10 +13,10 @@ public class Needy {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "nameOfNeedy", nullable = false)
+    @Column(name = "name_needy", nullable = false)
     private String nameOfNeedy;
 
-    @Column(name = "status", nullable = false)
+    @Column(name = "status_needy", nullable = false)
     private String status;
 
     @OneToMany(cascade = CascadeType.ALL)

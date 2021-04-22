@@ -11,10 +11,10 @@ public class Option {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "nameOfOption", nullable = false)
+    @Column(name = "name_option", nullable = false)
     private String nameOfOption;
 
-    @Column(name = "price", nullable = false)
+    @Column(name = "price_option", nullable = false)
     private Integer price;
 
     public Integer getId() {
