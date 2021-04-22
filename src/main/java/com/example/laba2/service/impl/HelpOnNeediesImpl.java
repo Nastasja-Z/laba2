@@ -29,12 +29,7 @@ public class HelpOnNeediesImpl implements HelpOnNeedies {
 
     @Override
     public Set<Option> getOptionForNeedy(String nameOfNeedy) {
-       /* Set<Needy> needies = getAllNeediesData();
-        Needy needy = needies.stream()
-                .filter(n -> n.getNameOfNeedy().equals(nameOfNeedy)).findFirst().orElse(null);
 
-        assert needy != null;
-        return needy.getOptions();*/
         Optional<Needy> options = needyRepository.findByNameOfNeedy(nameOfNeedy);
         return options.get().getOptions();
     }
@@ -44,11 +39,6 @@ public class HelpOnNeediesImpl implements HelpOnNeedies {
     @Transactional
     public Donation payForOption(String nameOFNeedy, int idOfOption) {
         Donation donations = new Donation();
-        //donations.setId(id);
-
-        //под вопросом логика. Нужно ли создавать нуждающегося сет и обьект, если через круд
-//        Set<Needy> mainNeedy = needyRepository.findAll(); //имя занято с названием функции
-//        Needy needy = mainNeedy.stream().filter(name -> name.getNameOfNeedy().equals(nameOFNeedy)).findFirst().orElse(null);
 
         Needy needies = needyRepository.findByNameOfNeedy(nameOFNeedy).orElse(null);
 
@@ -63,17 +53,11 @@ public class HelpOnNeediesImpl implements HelpOnNeedies {
             donations.setNeedy(needies);
             donations.setOption(option);
 
-            /*System.out.println("Name= " + needy.getNameOfNeedy() + " " + option);
-            needies.remove(option);
-            System.out.println("\nИзмененный список нужд [" + needy.getNameOfNeedy() + "]");
-            for (Option o :
-                    needies) {
-                System.out.println(o.toString());
-            }*/
             return donationRepository.save(donations);
         }
 
     }
+
 
     private List<Option> getAllOptionsData() {
         Option option1 = new Option();

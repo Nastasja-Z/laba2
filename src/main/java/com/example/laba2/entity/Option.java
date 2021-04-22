@@ -3,7 +3,7 @@ package com.example.laba2.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Option")
+@Table(name = "Options")
 public class Option {
 
     @Id
